@@ -25,6 +25,7 @@ app.get('/api/klines', async (req, res) => {
         res.send(response.body);
     } catch (error) {
         console.error('Error making request :')
+        console.log(error)
         res.status(500).json({error : 'Error fetching data'});
     }
 });
@@ -36,6 +37,7 @@ app.get('/api/symbols', async (req, res) => {
         const symbols = data.symbols.map(symbol => symbol.symbol);
         res.json(symbols);
     } catch (error) {
+        console.log(error)
         res.status(500).json({ error: 'Error fetching symbol list from Binance API' , errordata: error });
     }
 });
@@ -66,6 +68,7 @@ const io = new Server(server, {
   // binanceKlineWS.connect();
 
   // Handle socket.io connections
+
   io.on("connection", (socket) => {
     console.log("A user connected");
   
