@@ -36,7 +36,7 @@ app.get('/api/symbols', async (req, res) => {
         const symbols = data.symbols.map(symbol => symbol.symbol);
         res.json(symbols);
     } catch (error) {
-        res.status(500).json({ error: 'Error fetching symbol list from Binance API' });
+        res.status(500).json({ error: 'Error fetching symbol list from Binance API' , errordata: error });
     }
 });
 // Start the server
