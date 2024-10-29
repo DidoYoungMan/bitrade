@@ -52,18 +52,18 @@ const io = new Server(server, {
     },
   });
   
-  // Initialize BinanceKlineWS
-  const binanceKlineWS = new BinanceKlineWS();
+  // // Initialize BinanceKlineWS
+  // const binanceKlineWS = new BinanceKlineWS();
   
-  // Set up the kline event handler to emit kline data to all connected users
-  binanceKlineWS.onKline = (klineData) => {
-    // Emit kline data to all connected clients on 'KLINE' topic
-     console.log("Kline data emitted:", klineData);
-    io.emit("KLINE", klineData);
-  };
+  // // Set up the kline event handler to emit kline data to all connected users
+  // binanceKlineWS.onKline = (klineData) => {
+  //   // Emit kline data to all connected clients on 'KLINE' topic
+  //    console.log("Kline data emitted:", klineData);
+  //   io.emit("KLINE", klineData);
+  // };
   
-  // Start the WebSocket connection to Binance
-  binanceKlineWS.connect();
+  // // Start the WebSocket connection to Binance
+  // binanceKlineWS.connect();
 
   // Handle socket.io connections
   io.on("connection", (socket) => {
